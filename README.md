@@ -4,6 +4,8 @@
 
 A clean, fast JSON formatter with collapsible tree view. No frameworks, no ads, no bloat.
 
+**Live:** [https://jsnap.vercel.app](https://jsnap.vercel.app/)
+
 ## Features
 
 - **Instant formatting** — paste JSON and see a formatted tree view immediately
