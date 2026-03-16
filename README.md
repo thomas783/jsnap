@@ -4,7 +4,7 @@
 
 A clean, fast JSON formatter with collapsible tree view. No frameworks, no ads, no bloat.
 
-**Live:** [https://jsnap.vercel.app](https://jsnap.vercel.app/)
+[https://jsnap.vercel.app](https://jsnap.vercel.app/)
 
 ## Features
 
@@ -28,10 +28,6 @@ Open `index.html` in a browser, or serve with any static server:
 ```bash
 python3 -m http.server 8080
 ```
-
-## Deploy
-
-Configured for [Vercel](https://vercel.com) static deployment. Just connect the repo and deploy.
 
 ## License
 
