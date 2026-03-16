@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jsnap — JSON Formatter</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1>jsnap</h1>
+      <span class="tagline">paste. snap. done.</span>
+    </div>
+    <div class="header-right">
+      <button id="theme-toggle" title="Toggle theme">🌙</button>
+      <a href="https://github.com/thomas783/jsnap" target="_blank" rel="noopener" class="github-link" title="GitHub">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <button id="expand-all" title="Expand all">Expand All</button>
+    <button id="collapse-all" title="Collapse all">Collapse All</button>
+    <div class="depth-controls">
+      <button id="depth-minus" class="depth-step-btn" title="Collapse one level">&minus;</button>
+      <span id="depth-step-label" class="depth-label">All</span>
+      <button id="depth-plus" class="depth-step-btn" title="Expand one level">+</button>
+    </div>
+    <button id="saved-toggle" title="Toggle saved list">Saved <span id="saved-count"></span></button>
+    <button id="clear-btn" title="Clear input">Clear</button>
+  </div>
+
+  <!-- Saved items sidebar -->
+  <div id="saved-panel" class="saved-panel hidden">
+    <div class="saved-panel-header">
+      <span>Saved Items</span>
+      <button id="saved-close" title="Close">&times;</button>
+    </div>
+    <div id="saved-list" class="saved-list"></div>
+  </div>
+
+  <main>
+    <div class="panel input-panel">
+      <div class="panel-header">
+        <span>Input</span>
+        <div class="panel-actions">
+          <button id="save-raw" class="panel-btn" title="Save raw input">Save</button>
+          <button id="copy-raw" class="panel-btn" title="Copy raw input">Copy</button>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <div id="input-backdrop" class="input-backdrop"></div>
+        <textarea id="json-input" placeholder="Paste your JSON here..." spellcheck="false" autofocus></textarea>
+      </div>
+      <div id="error-bar" class="error-bar hidden"></div>
+    </div>
+    <div class="panel output-panel">
+      <div class="panel-header">
+        <span>Formatted</span>
+        <div class="panel-actions">
+          <button id="search-toggle" class="panel-btn" title="Search in tree">Search</button>
+          <button id="save-formatted" class="panel-btn" title="Save formatted JSON">Save</button>
+          <button id="copy-formatted" class="panel-btn" title="Copy formatted JSON">Copy</button>
+        </div>
+      </div>
+      <div id="search-bar" class="search-bar hidden">
+        <input id="search-input" type="text" placeholder="Search keys & values..." autocomplete="off" spellcheck="false" />
+        <button id="search-go" class="search-nav" title="Search (Enter)">Go</button>
+        <span id="search-count" class="search-count"></span>
+        <button id="search-prev" class="search-nav" title="Previous (Shift+Enter)">&uarr;</button>
+        <button id="search-next" class="search-nav" title="Next (Enter)">&darr;</button>
+        <button id="search-close" class="search-nav" title="Close (Esc)">&times;</button>
+      </div>
+      <div id="tree-output"></div>
+    </div>
+  </main>
+
+  <script src="js/parser.js"></script>
+  <script src="js/tree.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
