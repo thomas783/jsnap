@@ -150,8 +150,16 @@
   })();
 
   // ── Toolbar Actions ───────────────────────
-  expandAllBtn.addEventListener('click', () => TreeView.expandAll(output));
-  collapseAllBtn.addEventListener('click', () => TreeView.collapseAll(output));
+  expandAllBtn.addEventListener('click', () => {
+    TreeView.expandAll(output);
+    currentDepthStep = null;
+    depthStepLabel.textContent = 'All';
+  });
+  collapseAllBtn.addEventListener('click', () => {
+    TreeView.collapseAll(output);
+    currentDepthStep = 0;
+    depthStepLabel.textContent = '0';
+  });
 
 
   // ── B. +/- Step Controls ────────────────────
